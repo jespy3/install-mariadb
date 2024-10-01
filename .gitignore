@@ -1,0 +1,3 @@
+# ignore stored backups
+*.sql
+my_database_backup.sql
