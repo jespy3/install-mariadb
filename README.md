@@ -1,4 +1,7 @@
 # install-mariadb
+A test environment learning how to start up and initialise a MariaDB on a Debian-based docker container
+
+
 
 This repo was originally copied from https://github.com/jespy3/debian-environment.
 
