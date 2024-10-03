@@ -3,8 +3,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    volumes:
-      - .:/workspace
+    # volumes:
+    #   - .:/workspace
     working_dir: /workspace
     command: /bin/bash
     stdin_open: true
