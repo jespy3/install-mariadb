@@ -13,6 +13,8 @@ RUN wget -O- https://mariadb.org/mariadb_release_signing_key.asc | gpg --dearmor
   && echo "deb [arch=arm64] http://mirror.netinch.com/mariadb/repo/11.5.2/debian $(lsb_release -cs) main" | tee /etc/apt/sources.list.d/mariadb.list \
   && apt update && apt install -y mariadb-server
 
+# Copy over entrypoint script, make executable, and run on startup
 COPY entrypoint.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/entrypoint.sh
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 
