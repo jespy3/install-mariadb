@@ -14,4 +14,5 @@ RUN wget -O- https://mariadb.org/mariadb_release_signing_key.asc | gpg --dearmor
   && apt update && apt install -y mariadb-server
 
 COPY entrypoint.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/entrypoint.sh
 
