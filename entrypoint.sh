@@ -6,7 +6,11 @@ sleep 10
 
 if [ ! -d "/var/lib/mysql/my_database" ]; then
   echo "No database has been initialised, performing initilisation steps now..."
-  echo "Placeholder command"
+
+  mysql -u root <<EOF
+  DELETE FROM mysql.user WHERE User = '';   # Removing anonymous users
+EOF
+  echo "Have removed potential anonymous users"
 fi
 
 # To keep the container running
