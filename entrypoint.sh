@@ -16,9 +16,10 @@ EOF
 
   mysql -u root <<EOF
   CREATE DATABASE my_database;
+  CREATE USER '${MYSQL_USER}'@'localhost' IDENTIFIED BY '${MYSQL_PASSWORD}';
 EOF
 
-  echo "Successfully created a database."
+  echo "Successfully created a database and user."
 fi
 
 # To keep the container running
