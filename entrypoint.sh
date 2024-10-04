@@ -10,9 +10,15 @@ if [ ! -d "/var/lib/mysql/my_database" ]; then
   mysql -u root <<EOF
   DELETE FROM mysql.user WHERE User = '';   # Removing anonymous users
   DROP DATABASE IF EXISTS test;   # Removing any 'test'-named DBs
+  DELETE FROM mysql.user WHERE User = 'root' AND Host != 'localhost';   # Remove root users with remote access
   FLUSH PRIVILEGES;
 EOF
-  echo "Have removed potential anonymous users, test databases, and reloaded these changes."
+
+  mysql -u root <<EOF
+  CREATE DATABASE my_database;
+EOF
+
+  echo "Successfully created a database."
 fi
 
 # To keep the container running
