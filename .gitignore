@@ -1,2 +1,5 @@
 # ignore stored backups
 *.sql
+
+# ignore environment variables
+.env
